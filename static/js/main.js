@@ -317,7 +317,7 @@
         });
 
       // Events.
-        $body.on('click', function(event) {
+        $wrapper.on('click', function(event) {
 
           // Article visible? Hide.
             if ($body.hasClass('is-article-visible'))

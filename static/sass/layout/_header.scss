@@ -25,20 +25,20 @@
 		> * {
 			@include vendor('transition', 'opacity #{_duration(article)} ease-in-out');
 			position: relative;
-			margin-top: 3.5rem;
+			margin-top: 1.5rem;
 
 			&:before {
 				content: '';
 				display: block;
 				position: absolute;
-				top: calc(-3.5rem - 1px);
+				top: calc(-1.5rem - 1px);
 				left: calc(50% - #{_size(border-width) * 1});
-				width: _size(border-width);
-				height: calc(3.5rem + 1px);
+				#width: _size(border-width);
+				height: calc(1.5rem + 1px);
 				background: _palette(border);
 			}
 		}
-
+  
 		> :first-child {
 			margin-top: 0;
 
@@ -46,13 +46,17 @@
 				display: none;
 			}
 		}
-
+        > #languages {
+			&:before {
+				display:none;
+			}
+		}
 		.logo {
-			width: 5.5rem;
-			height: 5.5rem;
+			width: 11.5rem;
+			height: 4.5rem;
 			line-height: 5.5rem;
-			border: solid _size(border-width) _palette(border);
-			border-radius: 100%;
+			#border: solid _size(border-width) _palette(border);
+			border-radius: 4px;
 
 			.icon {
 				&:before {
@@ -64,8 +68,8 @@
 		.content {
 			border-style: solid;
 			border-color: _palette(border);
-			border-top-width: _size(border-width);
-			border-bottom-width: _size(border-width);
+			border-top-width: _size(border-width-thick);
+			border-bottom-width: _size(border-width-thick);
 			max-width: 100%;
 
 			.inner {
@@ -84,21 +88,63 @@
 				}
 			}
 
+            h1 {
+				font-family:'HelveticaNeueb504ff7c519675';
+				font-weight:100;
+				font-size:3.5rem;
+				strong {
+					font-family:'Helvetica-55b50944f1219675';
+					font-weight:600;
+				}
+			}
 			p {
 				text-transform: uppercase;
 				letter-spacing: _font(letter-spacing);
 				font-size: 0.8rem;
+				white-space: pre;
+				color: #49c0fe;
 				line-height: 2;
 			}
-		}
+		} 
+		.product {
+			    display: block;	
+				margin-bottom: 0;
+				list-style: none;
+				padding-left: 0;
+				border: solid _size(border-width) _palette(border);
+				#border-radius: _size(border-radius);
+				width: 11.5rem;
+				height: 2.75rem;
+				margin: 3rem 0 1rem 0;
+				text-transform: uppercase;
+				a {
+						display: block;
+				padding: 0.5rem 0 0.5rem 0;
+				letter-spacing: _font(letter-spacing);
+						min-width: 7.5rem;
+						height: 2.75rem;
+						line-height: 1.625rem;
+						text-transform: uppercase;
+						letter-spacing: _font(letter-spacing);
+						font-size: 0.8rem;
+						border-bottom: 0;
 
+						&:hover {
+							background-color: _palette(border-bg);
+						}
+
+						&:active {
+							background-color: _palette(border-bg-alt);
+						}
+				}
+		}
 		nav {
 			ul {
 				@include vendor('display', 'flex');
 				margin-bottom: 0;
 				list-style: none;
 				padding-left: 0;
-				border: solid _size(border-width) _palette(border);
+				#border: solid _size(border-width) _palette(border);
 				border-radius: _size(border-radius);
 
 				li {
@@ -197,7 +243,7 @@
 			}
 
 			.logo {
-				width: 4.75rem;
+				width: 11.5rem;
 				height: 4.75rem;
 				line-height: 4.75rem;
 

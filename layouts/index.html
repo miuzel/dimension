@@ -1,6 +1,7 @@
 {{ partial "header.html" . }}
 
     <!-- Wrapper -->
+
       <div id="wrapper">
 
         <!-- Header -->
@@ -19,22 +20,18 @@
                 <p>{{ .Site.Params.description | safeHTML }}</p>
               </div>
             </div>
+            <div class="product">
+              <a href="/products">
+              {{.Site.Params.product}}
+              </a>
+            </div>
             <nav>
               <ul>
-                {{ range .Data.Pages.ByWeight }}
+                {{ range where .Data.Pages.ByWeight "Section" "menu" }}
                   <li>{{ if isset .Params "link" }}<a href="{{ index .Params "link" }}"{{else}}<a href="#{{ .File.TranslationBaseName }}"{{end}}>{{ if .GetParam "menuname" }}{{ .GetParam "menuname" }}{{ else }}{{ .Title }}{{ end }}</a></li>
                 {{ end }}
               </ul>
             </nav>
-          </header>
-
-        <!-- Main -->
-          <div id="main">
-            {{ range .Data.Pages }}
-              {{ .Render "onepagestyle" }}
-            {{ end }}
-          </div>
-
         <!-- Multilanguage -->
           <div id="languages">
             {{ if .IsTranslated }}
@@ -43,4 +40,13 @@
               {{ end}}
             {{ end }}
           </div>
+          </header>
+
+        <!-- Main -->
+          <div id="main">
+            {{ range where .Data.Pages "Section" "menu" }}
+              {{ .Render "onepagestyle" }}
+            {{ end }}
+          </div>
+
 {{ partial "footer.html" . }}

@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>{{ .Title }}</title>
+		<title>{{ .Site.Params.company }} - {{ .Title }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/css/main.css" />
@@ -16,4 +16,74 @@
 	</head>
 	<!-- Scripts -->
 			<script src="/js/jquery.min.js"></script>
-	<body>
+
+<link href='http://cdn.webfont.youziku.com/webfonts/nomal/104053/46758/594257baf629db19608de72f.css' rel='stylesheet' type='text/css' />
+<link href='http://cdn.webfont.youziku.com/webfonts/nomal/104053/47559/59426939f629dc19608f7f41.css' rel='stylesheet' type='text/css' />
+			<script>
+				
+var scrollToTop = {
+    init: function() {
+        var that = this;
+        $(document).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                var scrollVal = $(this).scrollTop();
+                if (!$(".scroll-to-top-btn ").length) {
+                    $("body").append("<div class='scroll-to-top-btn'/>");
+                    $(".scroll-to-top-btn")
+                        .fadeIn("fast")
+                        .on("click", function () {
+                            $(this).animate({
+                                "bottom": "100%",
+                                "opacity": "0"
+                            }, 500, that.ifJQueryUILoaded("easeInOutQuart"));
+                            $("body").animate({
+                                scrollTop: 0
+                            }, 500);
+                        });
+                }
+            } else {
+                $(".scroll-to-top-btn").fadeOut("fast", function () {
+                    $(this).remove();
+                });
+            }
+        });
+    },
+    ifJQueryUILoaded: function(param) {
+        return jQuery.ui ? param : false
+    }
+}
+
+scrollToTop.init();
+</script>
+<style>
+	.scroll-to-top-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 80px;
+    cursor: pointer;
+    display: none;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-top: none;
+    border-bottom: 40px solid #eee;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: bottom;
+	z-index: 4;
+}
+
+.scroll-to-top-btn:after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-bottom: none;
+    border-top: 10px solid #eee;
+}
+</style>
+
+	<body class="is-loading">

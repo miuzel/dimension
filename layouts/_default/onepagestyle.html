@@ -1,4 +1,12 @@
 <article id="{{ .File.TranslationBaseName }}">
+    <div class="logo">
+    {{ with .Site.Params.logoimage }}
+    <img src="{{ . }}" width="100%" style="width: 150px; padding: 10px 10px 10px 0px;">
+  {{ end }}
+  {{ with .Site.Params.logo }}            
+    <span class="icon {{ . }}"></span>
+  {{ end }}
+  </div>
   <h1>{{ .Title }}</h1>
   {{ .Content }}
 </article>
