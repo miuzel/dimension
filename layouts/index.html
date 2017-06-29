@@ -22,17 +22,10 @@
             </div>
             <div class="product">
               <span id="toproduct" class="hidden active">
-<<<<<<< HEAD
               {{.Site.Params.product}}&nbsp;>
               </span>
               <span id="tohome" class="hidden" style="display:none">
               <&nbsp;{{.Site.Params.backtohome}}
-=======
-              {{.Site.Params.product}}
-              </span>
-              <span id="tohome" class="hidden">
-              {{.Site.Params.backtohome}}
->>>>>>> d847024d21940c541b8383808d0890425b7ee73b
               </span>
             </div>
             <nav id="menu" class="hidden active">
@@ -43,11 +36,7 @@
               </ul>
             </nav>
             
-<<<<<<< HEAD
             <nav id="products" class="hidden" style="display:none">
-=======
-            <nav id="products" class="hidden">
->>>>>>> d847024d21940c541b8383808d0890425b7ee73b
               <ul>
                 {{ range where .Data.Pages.ByWeight "Section" "products" }}
                   <li>{{ if isset .Params "link" }}<a href="{{ index .Params "link" }}"{{else}}<a href="#{{ .File.TranslationBaseName }}"{{end}}>{{ if .GetParam "productname" }}{{ .GetParam "productname" }}{{ else }}{{ .Title }}{{ end }}</a></li>
