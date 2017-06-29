@@ -37,6 +37,37 @@
 				height: calc(1.5rem + 1px);
 				background: _palette(border);
 			}
+			
+			&.hidden {
+				opacity:0;
+				display:none;
+			}
+
+			&.active {
+				display: block;
+				opacity:1;
+			-webkit-animation-name: fadeIn;
+			-webkit-animation-duration: 2s;
+			animation-name: fadeIn;
+			animation-duration: 2s;
+			}
+		}
+		> * > span {
+			
+			&.hidden {
+				opacity:0;
+				display:none;
+			}
+
+			&.active {
+				display: block;
+				@include vendor('transition', (
+							'transform #{_duration(article)} ease-in-out',
+							'filter #{_duration(article)} ease-in-out',
+							'opacity #{_duration(article)} ease-in-out',
+						));
+				opacity:1;
+			}
 		}
   
 		> :first-child {
@@ -48,7 +79,7 @@
 		}
         > #languages {
 			&:before {
-				display:none;
+				display:none!important; 
 			}
 		}
 		.logo {
@@ -117,25 +148,22 @@
 				height: 2.75rem;
 				margin: 3rem 0 1rem 0;
 				text-transform: uppercase;
-				a {
-						display: block;
 				padding: 0.5rem 0 0.5rem 0;
 				letter-spacing: _font(letter-spacing);
-						min-width: 7.5rem;
-						height: 2.75rem;
-						line-height: 1.625rem;
-						text-transform: uppercase;
-						letter-spacing: _font(letter-spacing);
-						font-size: 0.8rem;
-						border-bottom: 0;
+				min-width: 7.5rem;
+				height: 2.75rem;
+				line-height: 1.625rem;
+				text-transform: uppercase;
+				letter-spacing: _font(letter-spacing);
+				font-size: 0.8rem;
+				cursor: pointer;
 
-						&:hover {
-							background-color: _palette(border-bg);
-						}
+				&:hover {
+					background-color: _palette(border-bg);
+				}
 
-						&:active {
-							background-color: _palette(border-bg-alt);
-						}
+				&:active {
+					background-color: _palette(border-bg-alt);
 				}
 		}
 		nav {

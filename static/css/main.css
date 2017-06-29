@@ -878,12 +878,32 @@ button {
       #width: 1px;
       height: calc(1.5rem + 1px);
       background: #ffffff; }
+    #header > *.hidden {
+      opacity: 0;
+      display: none; }
+    #header > *.active {
+      display: block;
+      opacity: 1;
+      -webkit-animation-name: fadeIn;
+      -webkit-animation-duration: 2s;
+      animation-name: fadeIn;
+      animation-duration: 2s; }
+  #header > * > span.hidden {
+    opacity: 0;
+    display: none; }
+  #header > * > span.active {
+    display: block;
+    -moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    opacity: 1; }
   #header > :first-child {
     margin-top: 0; }
     #header > :first-child:before {
       display: none; }
   #header > #languages:before {
-    display: none; }
+    display: none !important; }
   #header .logo {
     width: 11.5rem;
     height: 4.5rem;
@@ -936,22 +956,20 @@ button {
     width: 11.5rem;
     height: 2.75rem;
     margin: 3rem 0 1rem 0;
-    text-transform: uppercase; }
-    #header .product a {
-      display: block;
-      padding: 0.5rem 0 0.5rem 0;
-      letter-spacing: 0.2rem;
-      min-width: 7.5rem;
-      height: 2.75rem;
-      line-height: 1.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      font-size: 0.8rem;
-      border-bottom: 0; }
-      #header .product a:hover {
-        background-color: rgba(255, 255, 255, 0.075); }
-      #header .product a:active {
-        background-color: rgba(255, 255, 255, 0.175); }
+    text-transform: uppercase;
+    padding: 0.5rem 0 0.5rem 0;
+    letter-spacing: 0.2rem;
+    min-width: 7.5rem;
+    height: 2.75rem;
+    line-height: 1.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    cursor: pointer; }
+    #header .product:hover {
+      background-color: rgba(255, 255, 255, 0.075); }
+    #header .product:active {
+      background-color: rgba(255, 255, 255, 0.175); }
   #header nav ul {
     display: -moz-flex;
     display: -webkit-flex;
