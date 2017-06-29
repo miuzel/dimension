@@ -24,8 +24,12 @@
       $footer = $('#footer'),
       $languages = $('#languages'),
       $main = $('#main'),
-      $main_articles = $main.children('article');
-
+      $main_articles = $main.children('article'),
+      $toggleproducts = $('.product'),
+      $navcompany = $('#menu'),
+      $navproducts = $('#products'),
+      $toproduct = $('#toproduct'),
+      $tohome = $('#tohome');
     // Disable animations/transitions until the page has loaded.
       $body.addClass('is-loading');
 
@@ -61,16 +65,19 @@
       }
 
     // Nav.
-      var $nav = $header.children('nav'),
-        $nav_li = $nav.find('li');
+      var $navs = $header.children('nav');
+      $navs.each(function(){
+          $nav_li = $(this).find('li');
 
-      // Add "middle" alignment classes if we're dealing with an even number of items.
-        if ($nav_li.length % 2 == 0) {
+          // Add "middle" alignment classes if we're dealing with an even number of items.
+          if ($nav_li.length % 2 == 0) {
 
-          $nav.addClass('use-middle');
-          $nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
+            $(this).addClass('use-middle');
+            $nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 
-        }
+          }
+      })
+
 
     // Main.
       var delay = 325,
@@ -315,7 +322,7 @@
             });
 
         });
-
+        
       // Events.
         $wrapper.on('click', function(event) {
 
@@ -324,7 +331,46 @@
               $main._hide(true);
 
         });
+        $toggleproducts.on('click',function(event){
+              var delay = 325; 
+              if (locked){
+                return;
+              }
+              locked = true;
+              
+              if (!$navproducts.hasClass('active')){
+                $toproduct.removeClass('active');
+                $navcompany.removeClass('active');
+                setTimeout(function() {
+                  $navcompany.hide();
+                  $toproduct.hide();
+                  $navproducts.show();
+                  $tohome.show();
+                  setTimeout(function() {
+                  $navproducts.addClass('active');
+                  $tohome.addClass('active');
+                    
+                  }, 5);
+                  locked = false;
+                }, delay);
+              }else{
+                $navproducts.removeClass('active');
+                $tohome.removeClass('active');
+                setTimeout(function() {
+                  $navproducts.hide();
+                  $tohome.hide();
+                  $navcompany.show();
+                  $toproduct.show();
+                  setTimeout(function() {
+                  $toproduct.addClass('active');
+                  $navcompany.addClass('active');
+                    
+                  }, 5);
+                  locked = false;
+                }, delay);
 
+              }
+        });
         $window.on('keyup', function(event) {
 
           switch (event.keyCode) {

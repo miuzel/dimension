@@ -16,33 +16,22 @@
             </div>
             <div class="content">
               <div class="inner">
-                <h1>{{ .Site.Params.title | safeHTML }}</h1>
-                <p>{{ .Site.Params.description | safeHTML }}</p>
-              </div>
-            </div>
-            <div class="product">
-              <span id="toproduct" class="hidden active">
-              {{.Site.Params.product}}&nbsp;>
-              </span>
-              <span id="tohome" class="hidden" style="display:none">
-              <&nbsp;{{.Site.Params.backtohome}}
-              </span>
-            </div>
-            <nav id="menu" class="hidden active">
-              <ul>
-                {{ range where .Data.Pages.ByWeight "Section" "menu" }}
-                  <li>{{ if isset .Params "link" }}<a href="{{ index .Params "link" }}"{{else}}<a href="#{{ .File.TranslationBaseName }}"{{end}}>{{ if .GetParam "menuname" }}{{ .GetParam "menuname" }}{{ else }}{{ .Title }}{{ end }}</a></li>
-                {{ end }}
-              </ul>
-            </nav>
-            
-            <nav id="products" class="hidden" style="display:none">
+                <h2>{{ .Site.Params.product | safeHTML }}</h2>
+          <nav>
               <ul>
                 {{ range where .Data.Pages.ByWeight "Section" "products" }}
                   <li>{{ if isset .Params "link" }}<a href="{{ index .Params "link" }}"{{else}}<a href="#{{ .File.TranslationBaseName }}"{{end}}>{{ if .GetParam "productname" }}{{ .GetParam "productname" }}{{ else }}{{ .Title }}{{ end }}</a></li>
                 {{ end }}
               </ul>
             </nav>
+                
+              </div>
+            </div>  
+            <div class="backhome">
+              <a href="/">
+              {{.Site.Params.backtohome}}
+              </a>
+            </div>
         <!-- Multilanguage -->
           <div id="languages">
             {{ if .IsTranslated }}
@@ -55,7 +44,7 @@
 
         <!-- Main -->
           <div id="main">
-            {{ range .Data.Pages }}
+            {{ range where .Data.Pages "Section" "menu" }}
               {{ .Render "onepagestyle" }}
             {{ end }}
           </div>
