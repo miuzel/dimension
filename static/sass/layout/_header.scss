@@ -44,6 +44,7 @@
 			
 			&.hidden {
 				opacity:0;
+<<<<<<< HEAD
 				-webkit-transform: translate(0px,100px);
 				-moz-transform:translate(0px,10px);
 				transform: translate(0px,10px);
@@ -76,6 +77,35 @@
 				-webkit-transform: translate(0px,0px);
 				-moz-transform:translate(0px,0px);
 				transform: translate(0px,0px);
+=======
+				display:none;
+			}
+
+			&.active {
+				display: block;
+				opacity:1;
+			-webkit-animation-name: fadeIn;
+			-webkit-animation-duration: 2s;
+			animation-name: fadeIn;
+			animation-duration: 2s;
+			}
+		}
+		> * > span {
+			
+			&.hidden {
+				opacity:0;
+				display:none;
+			}
+
+			&.active {
+				display: block;
+				@include vendor('transition', (
+							'transform #{_duration(article)} ease-in-out',
+							'filter #{_duration(article)} ease-in-out',
+							'opacity #{_duration(article)} ease-in-out',
+						));
+				opacity:1;
+>>>>>>> d847024d21940c541b8383808d0890425b7ee73b
 			}
 		}
   

@@ -332,6 +332,7 @@
 
         });
         $toggleproducts.on('click',function(event){
+<<<<<<< HEAD
               var delay = 325; 
               if (locked){
                 return;
@@ -370,6 +371,13 @@
                 }, delay);
 
               }
+=======
+          
+              $navproducts.toggleClass('active');
+              $navcompany.toggleClass('active');
+              $tohome.toggleClass('active');
+              $toproduct.toggleClass('active');
+>>>>>>> d847024d21940c541b8383808d0890425b7ee73b
         });
         $window.on('keyup', function(event) {
 

@@ -882,6 +882,7 @@ button {
       background: #ffffff; }
     #header > *.hidden {
       opacity: 0;
+<<<<<<< HEAD
       -webkit-transform: translate(0px, 100px);
       -moz-transform: translate(0px, 10px);
       transform: translate(0px, 10px); }
@@ -905,10 +906,31 @@ button {
       -webkit-transform: translate(0px, 0px);
       -moz-transform: translate(0px, 0px);
       transform: translate(0px, 0px); }
+=======
+      display: none; }
+    #header > *.active {
+      display: block;
+      opacity: 1;
+      -webkit-animation-name: fadeIn;
+      -webkit-animation-duration: 2s;
+      animation-name: fadeIn;
+      animation-duration: 2s; }
+  #header > * > span.hidden {
+    opacity: 0;
+    display: none; }
+  #header > * > span.active {
+    display: block;
+    -moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+    opacity: 1; }
+>>>>>>> d847024d21940c541b8383808d0890425b7ee73b
   #header > :first-child {
     margin-top: 0; }
     #header > :first-child:before {
       display: none; }
+<<<<<<< HEAD
   #header > #languages {
     margin-top: 2.5rem; }
     #header > #languages a {
@@ -917,6 +939,10 @@ button {
         border-botom: solid 1px rgba(255, 255, 255, 0.2); }
     #header > #languages:before {
       display: none !important; }
+=======
+  #header > #languages:before {
+    display: none !important; }
+>>>>>>> d847024d21940c541b8383808d0890425b7ee73b
   #header .logo {
     width: 11.5rem;
     height: 4.5rem;
